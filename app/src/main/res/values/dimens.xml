@@ -12,7 +12,7 @@
 
     <dimen name="actionBar">48dp</dimen>
 
-    <dimen name="iconPadding">16dp</dimen>
+    <dimen name="iconPadding">14dp</dimen>
 
     <dimen name="elevation_min">4dp</dimen>
     <dimen name="elevation_max">8dp</dimen>
