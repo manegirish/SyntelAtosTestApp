@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C40202</color>
+    <color name="colorPrimaryVariant">#9e0000</color>
+    <color name="colorOnPrimary">#C40202</color>
+
+    <color name="colorSecondary">#C40202</color>
+    <color name="colorSecondaryVariant">#9e0000</color>
+    <color name="colorOnSecondary">#C40202</color>
+
+    <color name="textViewPrimary">#999999</color>
+    <color name="textViewSecondary">#80999999</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+</resources>
