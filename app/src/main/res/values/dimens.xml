@@ -16,4 +16,6 @@
 
     <dimen name="elevation_min">4dp</dimen>
     <dimen name="elevation_max">8dp</dimen>
+
+    <dimen name="default_radius">4dp</dimen>
 </resources>

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/circle_background.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_three_dot_menu.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/layout/activity_fullscreen.xml" value="0.21927083333333333" />
@@ -12,6 +13,7 @@
         <entry key="app/src/main/res/layout/fragment_data_recyler_view.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/fragment_recyler_view.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/global_progress_bar.xml" value="0.11231884057971014" />
+        <entry key="app/src/main/res/layout/people_item.xml" value="0.21927083333333333" />
       </map>
     </option>
   </component>
