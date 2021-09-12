@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SA Test App</string>
 
+    <string name="app_icon">App Icon</string>
+    <string name="menu">Menu</string>
+
+    <string name="people">People</string>
+    <string name="rooms">Rooms</string>
 </resources>

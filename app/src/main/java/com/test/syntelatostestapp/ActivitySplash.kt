@@ -6,8 +6,9 @@ import com.test.syntelatostestapp.base.BaseActivity
 import com.test.syntelatostestapp.databinding.ActivitySplashBinding
 
 /**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
+ * @author Girish D. Mane girishmane8692@gmail.com
+ * Created on 9/11/21
+ * Last modified on 9/11/21
  */
 class ActivitySplash : BaseActivity() {
 

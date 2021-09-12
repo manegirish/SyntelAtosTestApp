@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="loaderOn"
+            type="Boolean" />
+    </data>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pb_global"
+        android:layout_width="@dimen/actionBar"
+        android:layout_height="@dimen/actionBar"
+        android:layout_gravity="center"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:indeterminate="true"
+        android:visibility="@{loaderOn ? View.VISIBLE : View.GONE}" />
+</layout>

@@ -8,6 +8,9 @@
         <entry key="app/src/main/res/layout/activity_fullscreen.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11231884057971014" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_data_recyler_view.xml" value="0.21927083333333333" />
+        <entry key="app/src/main/res/layout/fragment_recyler_view.xml" value="0.21927083333333333" />
+        <entry key="app/src/main/res/layout/global_progress_bar.xml" value="0.11231884057971014" />
       </map>
     </option>
   </component>
