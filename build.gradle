@@ -33,4 +33,6 @@ ext {
     gson = '2.8.7'
     retrofit = '2.9.0'
     okhttp3 = '4.9.1'
+
+    glide = '4.11.0'
 }

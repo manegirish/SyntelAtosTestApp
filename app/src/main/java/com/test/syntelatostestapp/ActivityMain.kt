@@ -39,6 +39,7 @@ class ActivityMain : BaseActivity(), View.OnClickListener {
             onMenuSelected(menuName = (it.title ?: "").toString())
             return@setOnMenuItemClickListener true
         }
+        popupMenu.show()
     }
 
     /**
@@ -60,10 +61,19 @@ class ActivityMain : BaseActivity(), View.OnClickListener {
         supportFragmentManager.beginTransaction().replace(R.id.fl_main_container, fragment, tag).commit()
     }
 
+    /**
+     * all initial actions to populate view
+     * */
+    private fun initView() {
+        onMenuSelected(resources.getString(R.string.people))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
+
+        initView()
 
         applyListeners()
     }
