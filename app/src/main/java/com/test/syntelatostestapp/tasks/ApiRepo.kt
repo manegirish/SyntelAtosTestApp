@@ -2,7 +2,6 @@ package com.test.syntelatostestapp.tasks
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.google.gson.JsonObject
 import com.test.syntelatostestapp.models.People
 import com.test.syntelatostestapp.network.ApiCalls
 import com.test.syntelatostestapp.network.ApiClient
@@ -25,13 +24,17 @@ internal object ApiRepo {
         val peopleData = MutableLiveData<ArrayList<People>?>()
         val apiService = ApiClient.getBasicClient().create(ApiCalls::class.java)
         val fetchPeopleCall = apiService.getPeople()
-        fetchPeopleCall.enqueue(object : Callback<JsonObject?> {
-            override fun onResponse(call: Call<JsonObject?>, response: Response<JsonObject?>) {
-
+        fetchPeopleCall.enqueue(object : Callback<ArrayList<People>?> {
+            override fun onResponse(call: Call<ArrayList<People>?>, response: Response<ArrayList<People>?>) {
+                if (response.isSuccessful) {
+                    peopleData.value = response.body()
+                } else {
+                    peopleData.value = null
+                }
             }
 
-            override fun onFailure(call: Call<JsonObject?>, t: Throwable) {
-
+            override fun onFailure(call: Call<ArrayList<People>?>, t: Throwable) {
+                peopleData.value = null
             }
         })
         return peopleData

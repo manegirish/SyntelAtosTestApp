@@ -1,6 +1,7 @@
 package com.test.syntelatostestapp.network
 
 import com.google.gson.JsonObject
+import com.test.syntelatostestapp.models.People
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -12,7 +13,7 @@ import retrofit2.http.GET
 internal interface ApiCalls {
 
     @GET(AppUrls.GET_PEOPLE)
-    fun getPeople(): Call<JsonObject?>
+    fun getPeople(): Call<ArrayList<People>?>
 
     @GET(AppUrls.GET_ROOMS)
     fun getRooms()

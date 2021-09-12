@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -18,14 +19,20 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_fragment_data"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/margin_quarter"
+            android:paddingBottom="@dimen/margin" />
 
         <TextView
             android:id="@+id/tv_fragment_data_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ErrorTextView"
             android:layout_gravity="center"
-            android:gravity="center" />
+            android:layout_margin="@dimen/margin"
+            android:alpha="0.5"
+            android:drawablePadding="@dimen/margin_half"
+            android:gravity="center"
+            app:drawableTopCompat="@drawable/ic_global_error" />
 
         <include
             layout="@layout/global_progress_bar"

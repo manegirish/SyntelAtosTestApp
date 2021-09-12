@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.test.syntelatostestapp.adapters.AdapterPeople
 import com.test.syntelatostestapp.base.BaseFragment
 import com.test.syntelatostestapp.databinding.FragmentDataRecyclerViewBinding
 import com.test.syntelatostestapp.tasks.ApiVM
@@ -18,6 +19,7 @@ import com.test.syntelatostestapp.tasks.ApiVM
 internal class FragmentPeople : BaseFragment() {
 
     private lateinit var dataViewBinding: FragmentDataRecyclerViewBinding
+    private lateinit var adapterPeople: AdapterPeople
     private lateinit var apiVm: ApiVM
 
     private fun fetchPeople() {
@@ -27,6 +29,10 @@ internal class FragmentPeople : BaseFragment() {
             if (people.size > 0) {
                 dataViewBinding.rvFragmentData.visibility = View.VISIBLE
                 dataViewBinding.tvFragmentDataError.visibility = View.GONE
+
+                adapterPeople = AdapterPeople(people = people, activity = requireActivity())
+                dataViewBinding.rvFragmentData.adapter = adapterPeople
+
             } else {
                 dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
                 dataViewBinding.rvFragmentData.visibility = View.GONE

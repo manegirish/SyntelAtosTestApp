@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- margins -->
     <dimen name="margin">16dp</dimen>
     <dimen name="margin_half">8dp</dimen>
     <dimen name="margin_quarter">4dp</dimen>
 
+    <!-- test sizes -->
     <dimen name="textSizeTitle">18sp</dimen>
     <dimen name="textSizeSplash">38sp</dimen>
     <dimen name="textSizeNormal">14sp</dimen>
@@ -12,10 +14,12 @@
 
     <dimen name="actionBar">48dp</dimen>
 
+    <!-- other -->
+    <dimen name="text_spacing">2dp</dimen>
     <dimen name="iconPadding">14dp</dimen>
 
-    <dimen name="elevation_min">4dp</dimen>
-    <dimen name="elevation_max">8dp</dimen>
-
+    <!-- card view dimens -->
+    <dimen name="elevation_min">2dp</dimen>
+    <dimen name="elevation_max">4dp</dimen>
     <dimen name="default_radius">4dp</dimen>
 </resources>
