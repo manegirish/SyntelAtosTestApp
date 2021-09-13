@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.test.syntelatostestapp.models.People
+import com.test.syntelatostestapp.models.Room
 
 
 /**
@@ -14,13 +15,22 @@ import com.test.syntelatostestapp.models.People
 internal class ApiVM(application: Application) : AndroidViewModel(application) {
 
     private lateinit var peopleObserver: LiveData<ArrayList<People>?>
+    private lateinit var roomsObserver: LiveData<ArrayList<Room>?>
 
     fun fetchPeople() {
         peopleObserver = ApiRepo.fetchPeople()
     }
 
+    fun fetchRooms() {
+        roomsObserver = ApiRepo.fetchRooms()
+    }
+
     fun getPeopleObserver(): LiveData<ArrayList<People>?> {
         return peopleObserver
+    }
+
+    fun getRoomsObserver(): LiveData<ArrayList<Room>?> {
+        return roomsObserver
     }
 
 }

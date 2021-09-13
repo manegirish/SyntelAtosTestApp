@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.test.syntelatostestapp.base.BaseActivity
 import com.test.syntelatostestapp.databinding.ActivityMainBinding
 import com.test.syntelatostestapp.fragments.FragmentPeople
+import com.test.syntelatostestapp.fragments.FragmentRooms
 
 /**
  * @author Girish D. Mane girishmane8692@gmail.com
@@ -49,7 +50,7 @@ class ActivityMain : BaseActivity(), View.OnClickListener {
         if (menuName == resources.getString(R.string.people)) {
             setFragment(FragmentPeople())
         } else if (menuName == resources.getString(R.string.rooms)) {
-
+            setFragment(FragmentRooms())
         }
     }
 
