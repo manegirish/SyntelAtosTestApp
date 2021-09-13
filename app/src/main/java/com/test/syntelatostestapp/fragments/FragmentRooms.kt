@@ -22,8 +22,10 @@ class FragmentRooms : BaseFragment() {
     private lateinit var apiVm: ApiVM
 
     private fun fetchRooms() {
+        dataViewBinding.loaderOn = true
         apiVm.fetchRooms()
         apiVm.getRoomsObserver().observe(viewLifecycleOwner, {
+            dataViewBinding.loaderOn = false
             val rooms = it ?: ArrayList()
             if (rooms.size > 0) {
                 dataViewBinding.rvFragmentData.visibility = View.VISIBLE
@@ -50,6 +52,8 @@ class FragmentRooms : BaseFragment() {
         dataViewBinding = FragmentDataRecyclerViewBinding.inflate(inflater, container, false)
 
         init()
+
+        fetchRooms()
 
         return dataViewBinding.root
     }

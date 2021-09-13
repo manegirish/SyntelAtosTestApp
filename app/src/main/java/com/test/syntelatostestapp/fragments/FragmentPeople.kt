@@ -23,8 +23,10 @@ internal class FragmentPeople : BaseFragment() {
     private lateinit var apiVm: ApiVM
 
     private fun fetchPeople() {
+        dataViewBinding.loaderOn = true
         apiVm.fetchPeople()
         apiVm.getPeopleObserver().observe(viewLifecycleOwner, {
+            dataViewBinding.loaderOn = false
             val people = it ?: ArrayList()
             if (people.size > 0) {
                 dataViewBinding.rvFragmentData.visibility = View.VISIBLE
