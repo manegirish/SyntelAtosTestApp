@@ -8,6 +8,10 @@
         <variable
             name="peopleItem"
             type="com.test.syntelatostestapp.models.People" />
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <FrameLayout
@@ -34,8 +38,8 @@
 
                 <FrameLayout
                     android:id="@+id/fl_people_item_image"
-                    android:layout_width="@dimen/actionBar"
-                    android:layout_height="@dimen/actionBar"
+                    android:layout_width="@dimen/profile_image"
+                    android:layout_height="@dimen/profile_image"
                     android:layout_gravity="center_vertical|start"
                     android:background="@drawable/circle_background"
                     bind:favoriteColor="@{peopleItem.favouriteColor}">
@@ -44,9 +48,10 @@
                         android:id="@+id/iv_people_item_image"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="1dp"
+                        android:layout_margin="4dp"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@mipmap/ic_launcher_round" />
+                        app:srcCompat="@mipmap/ic_launcher_round"
+                        bind:profileImage="@{peopleItem.avatar}" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -67,26 +72,35 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_people_item_job"
                         style="@style/SecondaryTextView"
+                        android:layout_marginBottom="@dimen/text_spacing"
                         android:text="@{peopleItem.jobTitle == null ? `-NA-` : peopleItem.jobTitle}" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_people_item_email"
                         style="@style/SecondaryTextView"
                         android:layout_marginTop="@dimen/text_spacing"
+                        android:layout_marginBottom="@dimen/text_spacing"
+                        android:autoLink="none"
                         android:drawableStart="@drawable/ic_email_n"
                         android:drawablePadding="@dimen/margin_quarter"
+                        android:linksClickable="false"
                         android:text="@{peopleItem.email == null ? `-NA-` : peopleItem.email}"
-                        app:drawableTint="@color/colorPrimaryLight" />
+                        android:textColor="@color/email_feature"
+                        app:drawableTint="@color/email_feature" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_people_item_contact"
                         style="@style/SecondaryTextView"
                         android:layout_marginTop="@dimen/text_spacing"
+                        android:autoLink="none"
                         android:drawableStart="@drawable/ic_phone_n"
                         android:drawablePadding="@dimen/margin_quarter"
+                        android:linksClickable="false"
                         android:text="@{peopleItem.phone == null ? `-NA-` : peopleItem.phone}"
-                        app:drawableTint="@color/colorPrimaryLight" />
+                        android:textColor="@color/call_feature"
+                        app:drawableTint="@color/call_feature" />
                 </LinearLayout>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </FrameLayout>

@@ -4,8 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.test.syntelatostestapp.R
 import com.test.syntelatostestapp.databinding.PeopleItemBinding
 import com.test.syntelatostestapp.models.People
+import androidx.core.content.ContextCompat.startActivity
+
+import android.content.Intent
+import androidx.core.content.ContextCompat
 
 
 /**
@@ -26,6 +31,12 @@ internal class AdapterPeople(private val people: ArrayList<People>, private val 
     override fun onBindViewHolder(holder: PeopleViewItem, position: Int) {
         val peopleItem = people[position]
         holder.peopleItemBinding.peopleItem = peopleItem
+        holder.peopleItemBinding.setOnClick {
+            val tagData = it.tag as String?
+            if (!tagData.isNullOrEmpty()) {
+
+            }
+        }
     }
 
     override fun getItemCount(): Int {

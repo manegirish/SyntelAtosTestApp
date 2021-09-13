@@ -18,4 +18,6 @@
     <color name="transparent">@android:color/transparent</color>
 
     <color name="errorText">#C40202</color>
+    <color name="email_feature">#85CA55</color>
+    <color name="call_feature">#2F83B9</color>
 </resources>

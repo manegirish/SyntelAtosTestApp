@@ -6,17 +6,20 @@
     <dimen name="margin_quarter">4dp</dimen>
 
     <!-- test sizes -->
-    <dimen name="textSizeTitle">18sp</dimen>
-    <dimen name="textSizeSplash">38sp</dimen>
-    <dimen name="textSizeNormal">14sp</dimen>
-    <dimen name="textSizeDescription">12sp</dimen>
-    <dimen name="textSizeHeading">16sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_splash">38sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_description">12sp</dimen>
+    <dimen name="text_size_heading">16sp</dimen>
 
-    <dimen name="actionBar">48dp</dimen>
+    <dimen name="action_bar">48dp</dimen>
+
+    <!-- imageview -->
+    <dimen name="profile_image">60dp</dimen>
 
     <!-- other -->
     <dimen name="text_spacing">2dp</dimen>
-    <dimen name="iconPadding">14dp</dimen>
+    <dimen name="icon_padding">14dp</dimen>
 
     <!-- card view dimens -->
     <dimen name="elevation_min">2dp</dimen>

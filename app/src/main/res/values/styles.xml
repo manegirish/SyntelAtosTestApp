@@ -25,7 +25,7 @@
         <item name="android:ellipsize">end</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/textViewPrimary</item>
-        <item name="android:textSize">@dimen/textSizeTitle</item>
+        <item name="android:textSize">@dimen/text_size_title</item>
     </style>
 
     <style name="ToolbarTextView" parent="Widget.AppCompat.TextView">
@@ -39,7 +39,7 @@
         <item name="android:typeface">normal</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/textViewPrimary</item>
-        <item name="android:textSize">@dimen/textSizeHeading</item>
+        <item name="android:textSize">@dimen/text_size_heading</item>
     </style>
 
     <style name="NormalTextView" parent="Widget.AppCompat.TextView">
@@ -53,7 +53,7 @@
         <item name="android:typeface">normal</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/textViewPrimary</item>
-        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
     </style>
 
     <style name="SecondaryTextView" parent="Widget.AppCompat.TextView">
@@ -67,7 +67,7 @@
         <item name="android:typeface">normal</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/textViewSecondary</item>
-        <item name="android:textSize">@dimen/textSizeDescription</item>
+        <item name="android:textSize">@dimen/text_size_description</item>
     </style>
 
     <style name="ErrorTextView" parent="Widget.AppCompat.TextView">
@@ -81,7 +81,7 @@
         <item name="android:typeface">normal</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/textViewPrimary</item>
-        <item name="android:textSize">@dimen/textSizeHeading</item>
+        <item name="android:textSize">@dimen/text_size_heading</item>
     </style>
 
 
