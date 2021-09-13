@@ -19,6 +19,7 @@ import com.test.syntelatostestapp.fragments.FragmentRooms
 class ActivityMain : BaseActivity(), View.OnClickListener {
 
     private lateinit var activityMainBinding: ActivityMainBinding
+    private var currentMenu: Int = R.string.rooms
 
     /**
      * all view/s listeners will be assigned here
@@ -34,7 +35,9 @@ class ActivityMain : BaseActivity(), View.OnClickListener {
         val menuList = arrayOf(R.string.people, R.string.rooms)
         val popupMenu = PopupMenu(applicationContext, activityMainBinding.ivMainMenu, Gravity.BOTTOM)
         for (menu in menuList) {
-            popupMenu.menu.add(menu)
+            if (menu != currentMenu) {
+                popupMenu.menu.add(menu)
+            }
         }
         popupMenu.setOnMenuItemClickListener {
             onMenuSelected(menuName = (it.title ?: "").toString())
@@ -47,10 +50,14 @@ class ActivityMain : BaseActivity(), View.OnClickListener {
      * handle click action of menu to open appropriate screen
      * */
     private fun onMenuSelected(menuName: String) {
-        if (menuName == resources.getString(R.string.people)) {
-            setFragment(FragmentPeople())
-        } else if (menuName == resources.getString(R.string.rooms)) {
-            setFragment(FragmentRooms())
+        if (resources.getString(currentMenu) != menuName) {
+            if (menuName == resources.getString(R.string.people)) {
+                currentMenu = R.string.people
+                setFragment(FragmentPeople())
+            } else if (menuName == resources.getString(R.string.rooms)) {
+                currentMenu = R.string.rooms
+                setFragment(FragmentRooms())
+            }
         }
     }
 

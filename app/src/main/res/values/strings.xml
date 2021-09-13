@@ -6,4 +6,5 @@
 
     <string name="people">People</string>
     <string name="rooms">Rooms</string>
+    <string name="double_back_pressed_warning">Press again to close application</string>
 </resources>
