@@ -14,9 +14,12 @@
     <dimen name="text_size_heading">16sp</dimen>
 
     <dimen name="action_bar">48dp</dimen>
+    <dimen name="button_normal">40dp</dimen>
 
     <!-- imageview -->
     <dimen name="profile_image">60dp</dimen>
+    <!-- always double the size of profile image -->
+    <dimen name="profile_image_large">120dp</dimen>
 
     <!-- other -->
     <dimen name="text_spacing">2dp</dimen>

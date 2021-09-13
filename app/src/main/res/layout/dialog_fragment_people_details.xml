@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/BaseCardView"
+            android:layout_marginStart="@dimen/action_bar"
+            android:layout_marginTop="@dimen/profile_image"
+            android:layout_marginEnd="@dimen/action_bar"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/action_bar">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_people_details_name"
+                        style="@style/NormalTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_half" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_people_details_job"
+                        style="@style/SecondaryTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_half" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_people_details_call"
+                        style="@style/SecondaryTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_people_details_email"
+                        style="@style/SecondaryTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_normal"
+                    android:background="@color/colorPrimaryLight"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="@string/dismiss"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:layout_width="@dimen/profile_image_large"
+            android:layout_height="@dimen/profile_image_large"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/circle_background">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_people_details_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:padding="4dp"
+                app:srcCompat="@drawable/ic_avatar" />
+        </FrameLayout>
+    </FrameLayout>
+</layout>
