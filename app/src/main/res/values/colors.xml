@@ -20,4 +20,5 @@
     <color name="errorText">#C40202</color>
     <color name="email_feature">#85CA55</color>
     <color name="call_feature">#2F83B9</color>
+    <color name="room_available">#14a501</color>
 </resources>

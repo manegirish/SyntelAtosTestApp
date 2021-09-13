@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_phone_n.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_three_dot_menu.xml" value="0.23958333333333334" />
+        <entry key="app/src/main/res/drawable/rounded_rect_solid_button.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/layout/activity_fullscreen.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11231884057971014" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
@@ -19,6 +20,7 @@
         <entry key="app/src/main/res/layout/fragment_recyler_view.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/global_progress_bar.xml" value="0.11231884057971014" />
         <entry key="app/src/main/res/layout/people_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/room_item.xml" value="0.2994858611825193" />
       </map>
     </option>
   </component>

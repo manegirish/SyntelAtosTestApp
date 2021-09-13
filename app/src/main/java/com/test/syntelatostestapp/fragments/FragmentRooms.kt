@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.test.syntelatostestapp.adapters.AdapterRooms
 import com.test.syntelatostestapp.base.BaseFragment
 import com.test.syntelatostestapp.databinding.FragmentDataRecyclerViewBinding
 import com.test.syntelatostestapp.tasks.ApiVM
@@ -19,6 +20,7 @@ import com.test.syntelatostestapp.tasks.ApiVM
 class FragmentRooms : BaseFragment() {
 
     private lateinit var dataViewBinding: FragmentDataRecyclerViewBinding
+    private lateinit var roomsAdapter: AdapterRooms
     private lateinit var apiVm: ApiVM
 
     private fun fetchRooms() {
@@ -31,6 +33,8 @@ class FragmentRooms : BaseFragment() {
                 dataViewBinding.rvFragmentData.visibility = View.VISIBLE
                 dataViewBinding.tvFragmentDataError.visibility = View.GONE
 
+                roomsAdapter = AdapterRooms(rooms = rooms, context = requireContext())
+                dataViewBinding.rvFragmentData.adapter = roomsAdapter
             } else {
                 dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
                 dataViewBinding.rvFragmentData.visibility = View.GONE
@@ -42,13 +46,13 @@ class FragmentRooms : BaseFragment() {
      * initialize view/s,object/s with relevant instance of class,managers¬ etc.
      * */
     private fun init() {
-        val layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        val layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
         dataViewBinding.rvFragmentData.layoutManager = layoutManager
 
         apiVm = ApiVM(requireActivity().application)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         dataViewBinding = FragmentDataRecyclerViewBinding.inflate(inflater, container, false)
 
         init()

@@ -8,6 +8,7 @@
     <!-- test sizes -->
     <dimen name="text_size_title">18sp</dimen>
     <dimen name="text_size_splash">38sp</dimen>
+    <dimen name="text_size_count">40sp</dimen>
     <dimen name="text_size_normal">14sp</dimen>
     <dimen name="text_size_description">12sp</dimen>
     <dimen name="text_size_heading">16sp</dimen>
