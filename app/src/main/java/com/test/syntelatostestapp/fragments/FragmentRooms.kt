@@ -12,6 +12,7 @@ import com.test.syntelatostestapp.base.BaseFragment
 import com.test.syntelatostestapp.databinding.FragmentDataRecyclerViewBinding
 import com.test.syntelatostestapp.models.Room
 import com.test.syntelatostestapp.tasks.ApiVM
+import com.test.syntelatostestapp.utils.SystemUtils
 
 
 /**
@@ -69,10 +70,19 @@ internal class FragmentRooms : BaseFragment() {
     }
 
     /**
+     * calculate span count based on screen width and min card size for room item data
+     * */
+    private fun getSpanCount(): Int {
+        val cardMinSize = resources.getDimensionPixelSize(R.dimen.rooms_card_min_width)
+        return (SystemUtils.getScreenWidth(requireActivity()) / cardMinSize)
+    }
+
+    /**
      * initialize view/s,object/s with relevant instance of class,managers¬ etc.
      * */
     private fun init() {
-        val layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+        getSpanCount()
+        val layoutManager = GridLayoutManager(requireContext(), getSpanCount(), RecyclerView.VERTICAL, false)
         dataViewBinding.rvFragmentData.layoutManager = layoutManager
 
         apiVm = ApiVM(requireActivity().application)

@@ -18,15 +18,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingStart="@dimen/margin"
-        android:paddingEnd="@dimen/margin">
+        android:layout_gravity="center">
 
         <com.google.android.material.card.MaterialCardView
             style="@style/BaseCardView"
-            android:layout_marginStart="@dimen/margin"
+            android:layout_width="@dimen/people_detail_card_width"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/profile_image"
-            android:layout_marginEnd="@dimen/margin"
             app:cardElevation="0dp"
             app:cardMaxElevation="0dp">
 
@@ -47,7 +45,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/margin"
                     android:orientation="vertical"
-                    android:paddingTop="@dimen/action_bar">
+                    android:paddingTop="@dimen/profile_image">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_people_details_name"
@@ -134,9 +132,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:padding="@dimen/margin_half"
-                android:importantForAccessibility="yes"
                 android:contentDescription="@string/profile_photo"
+                android:importantForAccessibility="yes"
+                android:padding="@dimen/margin_half"
                 app:srcCompat="@drawable/ic_avatar"
                 bind:profileImageFull="@{peopleItem.avatar}" />
         </FrameLayout>

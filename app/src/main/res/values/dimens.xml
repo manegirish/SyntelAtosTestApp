@@ -31,4 +31,8 @@
     <dimen name="elevation_min">2dp</dimen>
     <dimen name="elevation_max">4dp</dimen>
     <dimen name="default_radius">4dp</dimen>
+    <dimen name="rooms_card_min_width">140dp</dimen>
+    <dimen name="rooms_card_height">180dp</dimen>
+    <dimen name="people_card_height">100dp</dimen>
+    <dimen name="people_detail_card_width">240dp</dimen>
 </resources>
