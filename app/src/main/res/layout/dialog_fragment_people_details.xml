@@ -55,6 +55,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/margin_half"
                         android:gravity="center"
+                        android:importantForAccessibility="yes"
                         android:text="@{(peopleItem.firstName == null ? `` : peopleItem.firstName)+` `+(peopleItem.lastName == null ? `` : peopleItem.lastName)}" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -62,6 +63,7 @@
                         style="@style/SecondaryTextView"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center"
+                        android:importantForAccessibility="yes"
                         android:text="@{peopleItem.jobTitle == null ? `-NA-` : peopleItem.jobTitle}"
                         android:textStyle="bold" />
 
@@ -71,9 +73,11 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/margin"
                         android:autoLink="phone"
+                        android:contentDescription="@{(@string/contact_number+` `+(peopleItem.phone == null ? `-NA-` : peopleItem.phone))}"
                         android:drawableStart="@drawable/ic_phone_n"
                         android:drawablePadding="@dimen/margin_half"
                         android:gravity="center"
+                        android:importantForAccessibility="yes"
                         android:linksClickable="true"
                         android:text="@{peopleItem.phone == null ? `-NA-` : peopleItem.phone}"
                         android:textColor="@color/call_feature"
@@ -87,9 +91,11 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/margin"
                         android:autoLink="email"
+                        android:contentDescription="@{(@string/email+` `+(peopleItem.email == null ? `-NA-` : peopleItem.email))}"
                         android:drawableStart="@drawable/ic_email_n"
                         android:drawablePadding="@dimen/margin_half"
                         android:gravity="center"
+                        android:importantForAccessibility="yes"
                         android:linksClickable="true"
                         android:text="@{peopleItem.email == null ? `-NA-` : peopleItem.email}"
                         android:textColor="@color/email_feature"
@@ -104,6 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/button_normal"
                     android:background="@color/colorPrimaryLight"
+                    android:contentDescription="@{@string/dismiss+` `+@string/button}"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
                     android:onClick="@{(v) -> onClick.onClick(v)}"
@@ -128,6 +135,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:padding="@dimen/margin_half"
+                android:importantForAccessibility="yes"
+                android:contentDescription="@string/profile_photo"
                 app:srcCompat="@drawable/ic_avatar"
                 bind:profileImage="@{peopleItem.avatar}" />
         </FrameLayout>

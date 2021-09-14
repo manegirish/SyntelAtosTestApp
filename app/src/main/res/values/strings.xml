@@ -4,11 +4,15 @@
     <string name="menu">Menu</string>
     <string name="people">People</string>
     <string name="rooms">Rooms</string>
+    <string name="email">Email</string>
+    <string name="contact_number">Contact Number</string>
 
     <!-- actions -->
     <string name="dismiss">Dismiss</string>
 
     <!-- info -->
+    <string name="button">Button</string>
+    <string name="profile_photo">Profile Photo</string>
     <string name="room_occupancy">Room occupancy</string>
     <string name="room_name">Room name</string>
     <string name="room_occupied">Room occupied</string>
