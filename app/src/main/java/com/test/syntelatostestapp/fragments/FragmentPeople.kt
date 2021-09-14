@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.test.syntelatostestapp.R
 import com.test.syntelatostestapp.adapters.AdapterPeople
 import com.test.syntelatostestapp.base.BaseFragment
 import com.test.syntelatostestapp.callbacks.ItemClickedListener
@@ -25,22 +26,50 @@ internal class FragmentPeople : BaseFragment(), ItemClickedListener {
     private lateinit var adapterPeople: AdapterPeople
     private lateinit var apiVm: ApiVM
 
+    /**
+     * make API call with Vm to fetch people list
+     * */
     private fun fetchPeople() {
-        dataViewBinding.loaderOn = true
-        apiVm.fetchPeople()
-        apiVm.getPeopleObserver().observe(viewLifecycleOwner, {
-            dataViewBinding.loaderOn = false
-            val people = it ?: ArrayList()
-            if (people.size > 0) {
-                dataViewBinding.rvFragmentData.visibility = View.VISIBLE
-                dataViewBinding.tvFragmentDataError.visibility = View.GONE
-                adapterPeople = AdapterPeople(people = people.sortedBy { item -> item.name() }, activity = requireActivity(), itemClickedListener = this)
-                dataViewBinding.rvFragmentData.adapter = adapterPeople
-            } else {
-                dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
-                dataViewBinding.rvFragmentData.visibility = View.GONE
-            }
-        })
+        if (checkInternet(dataViewBinding.root)) {
+            dataViewBinding.loaderOn = true
+            apiVm.fetchPeople()
+            apiVm.getPeopleObserver().observe(viewLifecycleOwner, {
+                dataViewBinding.loaderOn = false
+                val people = it ?: ArrayList()
+                populatePeople(people = people)
+            })
+        } else {
+            showError(resources.getString(R.string.internet_unavailable))
+        }
+    }
+
+    /**
+     * show error message on view and hide list view¬
+     * */
+    private fun showError(errorMessage: String) {
+        dataViewBinding.tvFragmentDataError.text = errorMessage
+        dataViewBinding.tvFragmentDataError.contentDescription =
+            StringBuilder().append(resources.getString(R.string.error)).append(" ").append(errorMessage)
+        dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
+        dataViewBinding.rvFragmentData.visibility = View.GONE
+    }
+
+    /**
+     * show list of people or error message based on people array size
+     * */
+    private fun populatePeople(people: List<People>) {
+        if (people.isNotEmpty()) {
+            dataViewBinding.rvFragmentData.visibility = View.VISIBLE
+            dataViewBinding.tvFragmentDataError.visibility = View.GONE
+            adapterPeople = AdapterPeople(
+                people = people.sortedBy { item -> item.name() },
+                activity = requireActivity(),
+                itemClickedListener = this
+            )
+            dataViewBinding.rvFragmentData.adapter = adapterPeople
+        } else {
+            showError(resources.getString(R.string.no_data_available))
+        }
     }
 
     /**
@@ -53,7 +82,7 @@ internal class FragmentPeople : BaseFragment(), ItemClickedListener {
         apiVm = ApiVM(requireActivity().application)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         dataViewBinding = FragmentDataRecyclerViewBinding.inflate(inflater, container, false)
 
         init()
@@ -66,7 +95,7 @@ internal class FragmentPeople : BaseFragment(), ItemClickedListener {
     override fun itemClicked(view: View, position: Int, data: Any?) {
         if (data != null && data is People) {
             val peopleDetailsDialog = DialogFragmentPeopleDetails.newInstance(data)
-            peopleDetailsDialog.showNow(childFragmentManager,null)
+            peopleDetailsDialog.showNow(childFragmentManager, null)
         }
     }
 }

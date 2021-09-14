@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.test.syntelatostestapp.R
 import com.test.syntelatostestapp.adapters.AdapterRooms
 import com.test.syntelatostestapp.base.BaseFragment
 import com.test.syntelatostestapp.databinding.FragmentDataRecyclerViewBinding
+import com.test.syntelatostestapp.models.Room
 import com.test.syntelatostestapp.tasks.ApiVM
-import com.test.syntelatostestapp.utils.LogPrint
 
 
 /**
@@ -18,29 +19,53 @@ import com.test.syntelatostestapp.utils.LogPrint
  * Created on 9/13/21
  * Last modified on 9/13/21
  */
-class FragmentRooms : BaseFragment() {
+internal class FragmentRooms : BaseFragment() {
 
     private lateinit var dataViewBinding: FragmentDataRecyclerViewBinding
     private lateinit var roomsAdapter: AdapterRooms
     private lateinit var apiVm: ApiVM
 
+    /**
+     * make API call with help of vm observer to fetch rooms list
+     * */
     private fun fetchRooms() {
-        dataViewBinding.loaderOn = true
-        apiVm.fetchRooms()
-        apiVm.getRoomsObserver().observe(viewLifecycleOwner, {
-            dataViewBinding.loaderOn = false
-            val rooms = it ?: ArrayList()
-            if (rooms.size > 0) {
-                dataViewBinding.rvFragmentData.visibility = View.VISIBLE
-                dataViewBinding.tvFragmentDataError.visibility = View.GONE
-                val sorted = rooms.sortedBy { room -> room.occupied }
-                roomsAdapter = AdapterRooms(rooms = sorted, context = requireContext())
-                dataViewBinding.rvFragmentData.adapter = roomsAdapter
-            } else {
-                dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
-                dataViewBinding.rvFragmentData.visibility = View.GONE
-            }
-        })
+        if (checkInternet(dataViewBinding.root)) {
+            dataViewBinding.loaderOn = true
+            apiVm.fetchRooms()
+            apiVm.getRoomsObserver().observe(viewLifecycleOwner, {
+                dataViewBinding.loaderOn = false
+                val rooms = it ?: ArrayList()
+                populateRooms(rooms = rooms)
+            })
+        } else {
+            showError(resources.getString(R.string.internet_unavailable))
+        }
+    }
+
+    /**
+     * show error message on view and hide list view
+     * */
+    private fun showError(errorMessage: String) {
+        dataViewBinding.tvFragmentDataError.text = errorMessage
+        dataViewBinding.tvFragmentDataError.contentDescription =
+            StringBuilder().append(resources.getString(R.string.error)).append(" ").append(errorMessage)
+        dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
+        dataViewBinding.rvFragmentData.visibility = View.GONE
+    }
+
+    /**
+     * show list view or error message based on rooms array size
+     * */
+    private fun populateRooms(rooms: List<Room>) {
+        if (rooms.isNotEmpty()) {
+            dataViewBinding.rvFragmentData.visibility = View.VISIBLE
+            dataViewBinding.tvFragmentDataError.visibility = View.GONE
+            val sorted = rooms.sortedBy { room -> room.occupied }
+            roomsAdapter = AdapterRooms(rooms = sorted, context = requireContext())
+            dataViewBinding.rvFragmentData.adapter = roomsAdapter
+        } else {
+            showError(resources.getString(R.string.no_data_available))
+        }
     }
 
     /**

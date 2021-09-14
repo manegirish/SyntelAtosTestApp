@@ -55,4 +55,25 @@ object GlobalBinderAdapter {
                 }
             })
     }
+
+    @BindingAdapter("profileImageFull")
+    @JvmStatic
+    fun setProfileImageFull(imageView: AppCompatImageView, imageUrl: String?) {
+        GlideApp.with(imageView.context)
+            .asBitmap()
+            .load(imageUrl)
+            .sizeMultiplier(0.5f)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .error(ContextCompat.getDrawable(imageView.context, R.drawable.ic_avatar))
+            .placeholder(ContextCompat.getDrawable(imageView.context, R.drawable.ic_avatar))
+            .apply(RequestOptions.circleCropTransform())
+            .into(object :
+                BitmapImageViewTarget(imageView) {
+                override fun setResource(resource: Bitmap?) {
+                    imageView.setImageBitmap(
+                        resource
+                    )
+                }
+            })
+    }
 }

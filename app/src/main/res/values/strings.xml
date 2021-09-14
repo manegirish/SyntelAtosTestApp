@@ -14,6 +14,7 @@
     <string name="button">Button</string>
     <string name="profile_photo">Profile Photo</string>
     <string name="room_occupancy">Room occupancy</string>
+    <string name="error">Error</string>
     <string name="room_name">Room name</string>
     <string name="room_occupied">Room occupied</string>
     <string name="room_not_occupied">Room not occupied</string>
@@ -22,4 +23,6 @@
     <string name="double_back_pressed_warning">Press again to close application</string>
     <string name="something_went_Wrong">Something went wrong</string>
     <string name="internet_unavailable">Internet Unavailable</string>
+    <string name="no_data_available">No Data Available</string>
+
 </resources>

@@ -138,7 +138,7 @@
                 android:importantForAccessibility="yes"
                 android:contentDescription="@string/profile_photo"
                 app:srcCompat="@drawable/ic_avatar"
-                bind:profileImage="@{peopleItem.avatar}" />
+                bind:profileImageFull="@{peopleItem.avatar}" />
         </FrameLayout>
     </FrameLayout>
 </layout>
