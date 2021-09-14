@@ -67,7 +67,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_people_details_call"
-                        style="@style/SecondaryTextView"
+                        style="@style/NormalTextView"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/margin"
                         android:autoLink="phone"
@@ -77,6 +77,7 @@
                         android:gravity="center"
                         android:importantForAccessibility="yes"
                         android:linksClickable="true"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:text="@{peopleItem.phone == null ? `-NA-` : peopleItem.phone}"
                         android:textColor="@color/call_feature"
                         android:textColorHighlight="@color/transparent"
@@ -85,7 +86,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_people_details_email"
-                        style="@style/SecondaryTextView"
+                        style="@style/NormalTextView"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/margin"
                         android:autoLink="email"
@@ -95,6 +96,7 @@
                         android:gravity="center"
                         android:importantForAccessibility="yes"
                         android:linksClickable="true"
+                        android:fontFamily="sans-serif-condensed-medium"
                         android:text="@{peopleItem.email == null ? `-NA-` : peopleItem.email}"
                         android:textColor="@color/email_feature"
                         android:textColorHighlight="@color/transparent"

@@ -5,6 +5,9 @@ plugins {
 }
 
 android {
+
+    Properties properties = new Properties()
+
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {
@@ -12,22 +15,62 @@ android {
 
         minSdk rootProject.minSdkVersion
         targetSdk rootProject.targetSdkVersion
-        versionCode 1
-        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
         release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    productFlavors {
+        devApp {
+            flavorDimensions "devApp"
+
+            properties.load(project.rootProject.file('app-dev.properties').newDataInputStream())
+
+            def version_code = properties.getProperty('VERSION_CODE').toInteger()
+            def version_name = properties.getProperty('VERSION_NAME')
+
+            versionCode version_code
+            versionName version_name
+            
+            applicationIdSuffix properties.getProperty('APP_POSTFIX')
+
+            buildConfigField("String", "BASE_URL", "\"" + properties.getProperty('BASE_URL') + "\"")
+        }
+
+        prodApp {
+            flavorDimensions "prodApp"
+
+            properties.load(project.rootProject.file('app-dev.properties').newDataInputStream())
+
+            def version_code = properties.getProperty('VERSION_CODE').toInteger()
+            def version_name = properties.getProperty('VERSION_NAME')
+
+            versionCode version_code
+            versionName version_name
+
+            applicationIdSuffix properties.getProperty('APP_POSTFIX')
+
+            buildConfigField("String", "BASE_URL", "\"" + properties.getProperty('BASE_URL') + "\"")
+        }
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -40,18 +83,18 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:'+rootProject.ktx
-    implementation 'androidx.appcompat:appcompat:'+rootProject.appCompat
-    implementation 'com.google.android.material:material:'+rootProject.material
+    implementation 'androidx.core:core-ktx:' + rootProject.ktx
+    implementation 'androidx.appcompat:appcompat:' + rootProject.appCompat
+    implementation 'com.google.android.material:material:' + rootProject.material
 
     implementation 'com.squareup.retrofit2:retrofit:' + rootProject.retrofit
     implementation 'com.squareup.retrofit2:converter-gson:' + rootProject.retrofit
     implementation 'com.google.code.gson:gson:' + rootProject.gson
 
-    implementation 'com.github.bumptech.glide:glide:'+ rootProject.glide
-    kapt 'com.github.bumptech.glide:compiler:'+ rootProject.glide
+    implementation 'com.github.bumptech.glide:glide:' + rootProject.glide
+    kapt 'com.github.bumptech.glide:compiler:' + rootProject.glide
 
-    testImplementation 'junit:junit:'+rootProject.junit
-    androidTestImplementation 'androidx.test.ext:junit:'+rootProject.junitExt
-    androidTestImplementation 'androidx.test.espresso:espresso-core:'+rootProject.espressoCore
+    testImplementation 'junit:junit:' + rootProject.junit
+    androidTestImplementation 'androidx.test.ext:junit:' + rootProject.junitExt
+    androidTestImplementation 'androidx.test.espresso:espresso-core:' + rootProject.espressoCore
 }

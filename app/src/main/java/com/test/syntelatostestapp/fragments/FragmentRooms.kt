@@ -97,5 +97,4 @@ internal class FragmentRooms : BaseFragment() {
 
         return dataViewBinding.root
     }
-
 }

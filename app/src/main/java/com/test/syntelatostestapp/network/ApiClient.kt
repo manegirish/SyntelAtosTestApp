@@ -1,5 +1,6 @@
 package com.test.syntelatostestapp.network
 
+import com.test.syntelatostestapp.BuildConfig
 import com.test.syntelatostestapp.utils.LogPrint
 import okhttp3.*
 import retrofit2.Retrofit
@@ -28,7 +29,7 @@ internal object ApiClient {
     fun getBasicClient(): Retrofit {
         if (basicClient == null) {
             basicClient = Retrofit.Builder()
-                .baseUrl(AppUrls.BASE_URL)
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(baseHttpClient)
                 .build()
