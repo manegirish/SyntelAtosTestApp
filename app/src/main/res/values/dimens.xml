@@ -17,6 +17,8 @@
     <dimen name="button_normal">40dp</dimen>
 
     <!-- imageview -->
+    <dimen name="room_count_icon">90dp</dimen>
+
     <dimen name="profile_image">60dp</dimen>
     <!-- always double the size of profile image -->
     <dimen name="profile_image_large">120dp</dimen>

@@ -8,6 +8,12 @@
     <!-- actions -->
     <string name="dismiss">Dismiss</string>
 
+    <!-- info -->
+    <string name="room_occupancy">Room occupancy</string>
+    <string name="room_name">Room name</string>
+    <string name="room_occupied">Room occupied</string>
+    <string name="room_not_occupied">Room not occupied</string>
+
     <!-- messages-->
     <string name="double_back_pressed_warning">Press again to close application</string>
     <string name="something_went_Wrong">Something went wrong</string>
