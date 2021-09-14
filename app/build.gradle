@@ -48,8 +48,6 @@ android {
 
             versionCode version_code
             versionName version_name
-            
-            applicationIdSuffix properties.getProperty('APP_POSTFIX')
 
             buildConfigField("String", "BASE_URL", "\"" + properties.getProperty('BASE_URL') + "\"")
         }
@@ -64,9 +62,7 @@ android {
 
             versionCode version_code
             versionName version_name
-
-            applicationIdSuffix properties.getProperty('APP_POSTFIX')
-
+            
             buildConfigField("String", "BASE_URL", "\"" + properties.getProperty('BASE_URL') + "\"")
         }
     }
