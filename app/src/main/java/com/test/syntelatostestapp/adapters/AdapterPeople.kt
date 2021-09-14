@@ -15,7 +15,7 @@ import com.test.syntelatostestapp.models.People
  * Last modified on 9/12/21
  */
 internal class AdapterPeople(
-    private val people: ArrayList<People>,
+    private val people: List<People>,
     private val activity: FragmentActivity,
     private val itemClickedListener: ItemClickedListener
 ) :

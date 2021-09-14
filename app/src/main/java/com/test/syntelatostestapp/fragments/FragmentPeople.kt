@@ -34,8 +34,7 @@ internal class FragmentPeople : BaseFragment(), ItemClickedListener {
             if (people.size > 0) {
                 dataViewBinding.rvFragmentData.visibility = View.VISIBLE
                 dataViewBinding.tvFragmentDataError.visibility = View.GONE
-                people.sortedBy { item -> item.name() }
-                adapterPeople = AdapterPeople(people = people, activity = requireActivity(), itemClickedListener = this)
+                adapterPeople = AdapterPeople(people = people.sortedBy { item -> item.name() }, activity = requireActivity(), itemClickedListener = this)
                 dataViewBinding.rvFragmentData.adapter = adapterPeople
             } else {
                 dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
