@@ -10,4 +10,6 @@
 
     <!-- messages-->
     <string name="double_back_pressed_warning">Press again to close application</string>
+    <string name="something_went_Wrong">Something went wrong</string>
+    <string name="internet_unavailable">Internet Unavailable</string>
 </resources>

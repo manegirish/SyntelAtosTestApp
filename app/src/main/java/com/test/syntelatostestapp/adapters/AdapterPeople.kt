@@ -4,13 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.test.syntelatostestapp.R
+import com.test.syntelatostestapp.callbacks.ItemClickedListener
 import com.test.syntelatostestapp.databinding.PeopleItemBinding
 import com.test.syntelatostestapp.models.People
-import androidx.core.content.ContextCompat.startActivity
-
-import android.content.Intent
-import androidx.core.content.ContextCompat
 
 
 /**
@@ -18,7 +14,11 @@ import androidx.core.content.ContextCompat
  * Created on 9/12/21
  * Last modified on 9/12/21
  */
-internal class AdapterPeople(private val people: ArrayList<People>, private val activity: FragmentActivity) :
+internal class AdapterPeople(
+    private val people: ArrayList<People>,
+    private val activity: FragmentActivity,
+    private val itemClickedListener: ItemClickedListener
+) :
     RecyclerView.Adapter<AdapterPeople.PeopleViewItem>() {
 
     class PeopleViewItem(val peopleItemBinding: PeopleItemBinding) : RecyclerView.ViewHolder(peopleItemBinding.root)
@@ -32,11 +32,9 @@ internal class AdapterPeople(private val people: ArrayList<People>, private val 
         val peopleItem = people[position]
         holder.peopleItemBinding.peopleItem = peopleItem
         holder.peopleItemBinding.setOnClick {
-            val tagData = it.tag as String?
-            if (!tagData.isNullOrEmpty()) {
-
-            }
+            itemClickedListener.itemClicked(view = it, position = position, data = peopleItem)
         }
+        holder.peopleItemBinding.executePendingBindings()
     }
 
     override fun getItemCount(): Int {

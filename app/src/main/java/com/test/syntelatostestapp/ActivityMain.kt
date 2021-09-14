@@ -58,6 +58,7 @@ class ActivityMain : BaseActivity(), View.OnClickListener {
                 currentMenu = R.string.rooms
                 setFragment(FragmentRooms())
             }
+            activityMainBinding.tvMainTitle.setText(currentMenu)
         }
     }
 

@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.test.syntelatostestapp.adapters.AdapterPeople
 import com.test.syntelatostestapp.base.BaseFragment
+import com.test.syntelatostestapp.callbacks.ItemClickedListener
 import com.test.syntelatostestapp.databinding.FragmentDataRecyclerViewBinding
+import com.test.syntelatostestapp.dialogs.DialogFragmentPeopleDetails
+import com.test.syntelatostestapp.models.People
 import com.test.syntelatostestapp.tasks.ApiVM
 
 /**
@@ -16,7 +19,7 @@ import com.test.syntelatostestapp.tasks.ApiVM
  * Created on 9/12/21
  * Last modified on 9/12/21
  */
-internal class FragmentPeople : BaseFragment() {
+internal class FragmentPeople : BaseFragment(), ItemClickedListener {
 
     private lateinit var dataViewBinding: FragmentDataRecyclerViewBinding
     private lateinit var adapterPeople: AdapterPeople
@@ -31,10 +34,9 @@ internal class FragmentPeople : BaseFragment() {
             if (people.size > 0) {
                 dataViewBinding.rvFragmentData.visibility = View.VISIBLE
                 dataViewBinding.tvFragmentDataError.visibility = View.GONE
-
-                adapterPeople = AdapterPeople(people = people, activity = requireActivity())
+                people.sortedBy { item -> item.name() }
+                adapterPeople = AdapterPeople(people = people, activity = requireActivity(), itemClickedListener = this)
                 dataViewBinding.rvFragmentData.adapter = adapterPeople
-
             } else {
                 dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE
                 dataViewBinding.rvFragmentData.visibility = View.GONE
@@ -60,5 +62,12 @@ internal class FragmentPeople : BaseFragment() {
         fetchPeople()
 
         return dataViewBinding.root
+    }
+
+    override fun itemClicked(view: View, position: Int, data: Any?) {
+        if (data != null && data is People) {
+            val peopleDetailsDialog = DialogFragmentPeopleDetails.newInstance(data)
+            peopleDetailsDialog.showNow(childFragmentManager,null)
+        }
     }
 }

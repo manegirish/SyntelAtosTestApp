@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
@@ -24,6 +25,12 @@ object GlobalBinderAdapter {
     @BindingAdapter("favoriteColor")
     @JvmStatic
     fun setFavoriteColor(imageFrame: FrameLayout, colorString: String?) {
+        imageFrame.background.colorFilter = PorterDuffColorFilter(Color.parseColor(colorString), PorterDuff.Mode.SRC)
+    }
+
+    @BindingAdapter("favoriteColorView")
+    @JvmStatic
+    fun setFavoriteColorView(imageFrame: View, colorString: String?) {
         imageFrame.background.colorFilter = PorterDuffColorFilter(Color.parseColor(colorString), PorterDuff.Mode.SRC)
     }
 
