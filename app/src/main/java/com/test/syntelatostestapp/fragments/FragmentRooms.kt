@@ -10,6 +10,7 @@ import com.test.syntelatostestapp.adapters.AdapterRooms
 import com.test.syntelatostestapp.base.BaseFragment
 import com.test.syntelatostestapp.databinding.FragmentDataRecyclerViewBinding
 import com.test.syntelatostestapp.tasks.ApiVM
+import com.test.syntelatostestapp.utils.LogPrint
 
 
 /**
@@ -32,8 +33,8 @@ class FragmentRooms : BaseFragment() {
             if (rooms.size > 0) {
                 dataViewBinding.rvFragmentData.visibility = View.VISIBLE
                 dataViewBinding.tvFragmentDataError.visibility = View.GONE
-
-                roomsAdapter = AdapterRooms(rooms = rooms, context = requireContext())
+                val sorted = rooms.sortedBy { room -> room.occupied }
+                roomsAdapter = AdapterRooms(rooms = sorted, context = requireContext())
                 dataViewBinding.rvFragmentData.adapter = roomsAdapter
             } else {
                 dataViewBinding.tvFragmentDataError.visibility = View.VISIBLE

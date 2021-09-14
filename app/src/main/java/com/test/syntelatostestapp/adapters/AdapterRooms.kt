@@ -15,7 +15,7 @@ import com.test.syntelatostestapp.models.Room
  * Last modified on 9/13/21
  * All rights reserved by Birdzi In
  */
-internal class AdapterRooms(private val rooms: ArrayList<Room>, private val context: Context) :
+internal class AdapterRooms(private val rooms: List<Room>, private val context: Context) :
     RecyclerView.Adapter<AdapterRooms.RoomItemView>() {
 
     class RoomItemView(val roomItemBinding: RoomItemBinding) : RecyclerView.ViewHolder(roomItemBinding.root)
