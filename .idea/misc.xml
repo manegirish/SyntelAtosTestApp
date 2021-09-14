@@ -6,13 +6,16 @@
         <entry key="app/src/main/res/drawable/circle_background.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_avatar.xml" value="0.12135416666666667" />
         <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.23958333333333334" />
+        <entry key="app/src/main/res/drawable/ic_cancel_n.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_email_n.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_global_error.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_phone_n.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_rooms_count.xml" value="0.23958333333333334" />
+        <entry key="app/src/main/res/drawable/ic_search_n.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_three_dot_menu.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/rounded_rect_solid_button.xml" value="0.23958333333333334" />
+        <entry key="app/src/main/res/drawable/rounded_solid_button_white.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/layout/activity_fullscreen.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11231884057971014" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />

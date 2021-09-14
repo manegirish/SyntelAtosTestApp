@@ -1,13 +1,16 @@
 package com.test.syntelatostestapp.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.test.syntelatostestapp.R
+import com.test.syntelatostestapp.callbacks.SearchListener
 import com.test.syntelatostestapp.databinding.RoomItemBinding
 import com.test.syntelatostestapp.models.Room
+import com.test.syntelatostestapp.utils.LogPrint
 
 /**
  * @author Girish D. Mane gmane@birdzi.com
@@ -15,10 +18,31 @@ import com.test.syntelatostestapp.models.Room
  * Last modified on 9/13/21
  * All rights reserved by Birdzi In
  */
-internal class AdapterRooms(private val rooms: List<Room>, private val context: Context) :
+internal class AdapterRooms(private val rooms: ArrayList<Room>,
+                            private val context: Context,
+                            private val searchListener: SearchListener
+) :
     RecyclerView.Adapter<AdapterRooms.RoomItemView>() {
 
+    private val roomList = ArrayList(rooms)
+
     class RoomItemView(val roomItemBinding: RoomItemBinding) : RecyclerView.ViewHolder(roomItemBinding.root)
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun searchRooms(searchQuery: String?) {
+        rooms.clear()
+        if (searchQuery.isNullOrEmpty()) {
+            rooms.addAll(roomList)
+        } else {
+            for (room in roomList) {
+                if (room.name.toString().contains(searchQuery, true)) {
+                    rooms.add(room)
+                }
+            }
+        }
+        searchListener.searchResult(rooms)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomItemView {
         val roomItemBinding = RoomItemBinding.inflate(

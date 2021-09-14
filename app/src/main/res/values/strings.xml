@@ -10,11 +10,15 @@
     <!-- actions -->
     <string name="dismiss">Dismiss</string>
 
+    <!-- hints -->
+    <string name="search_here">search here</string>
+
     <!-- info -->
     <string name="button">Button</string>
     <string name="profile_photo">Profile Photo</string>
     <string name="room_occupancy">Room occupancy</string>
     <string name="error">Error</string>
+    <string name="search_bar">Search Bar</string>
     <string name="room_name">Room name</string>
     <string name="room_occupied">Room occupied</string>
     <string name="room_not_occupied">Room not occupied</string>

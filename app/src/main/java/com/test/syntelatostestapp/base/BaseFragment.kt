@@ -1,10 +1,12 @@
 package com.test.syntelatostestapp.base
 
+import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.test.syntelatostestapp.utils.SnackResponse
 
@@ -49,6 +51,26 @@ internal open class BaseFragment : Fragment() {
         } else {
             SnackResponse.internetUnavailable(view = view)
             false
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        hideKeyboard(requireActivity())
+    }
+
+    /**
+     * hide soft keyboard if opened on view
+     */
+    fun hideKeyboard(activity: Activity) {
+        val inputManager = activity
+            .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val currentFocusedView = activity.currentFocus
+        if (currentFocusedView != null) {
+            inputManager.hideSoftInputFromWindow(
+                currentFocusedView.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
         }
     }
 }

@@ -12,6 +12,7 @@
     <dimen name="text_size_normal">14sp</dimen>
     <dimen name="text_size_description">12sp</dimen>
     <dimen name="text_size_heading">16sp</dimen>
+    <dimen name="action_bar_margin">56dp</dimen>
 
     <dimen name="action_bar">48dp</dimen>
     <dimen name="button_normal">40dp</dimen>
@@ -34,5 +35,5 @@
     <dimen name="rooms_card_min_width">140dp</dimen>
     <dimen name="rooms_card_height">180dp</dimen>
     <dimen name="people_card_height">100dp</dimen>
-    <dimen name="people_detail_card_width">240dp</dimen>
+    <dimen name="people_detail_card_width">260dp</dimen>
 </resources>

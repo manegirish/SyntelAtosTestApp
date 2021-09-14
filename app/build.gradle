@@ -90,6 +90,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:' + rootProject.glide
     kapt 'com.github.bumptech.glide:compiler:' + rootProject.glide
 
+    //implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:' + rootProject.coroutine
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:"+rootProject.lifecycleVersion
+
     testImplementation 'junit:junit:' + rootProject.junit
     androidTestImplementation 'androidx.test.ext:junit:' + rootProject.junitExt
     androidTestImplementation 'androidx.test.espresso:espresso-core:' + rootProject.espressoCore

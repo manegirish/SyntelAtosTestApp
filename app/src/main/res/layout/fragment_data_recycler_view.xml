@@ -1,37 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="loaderOn"
             type="Boolean" />
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_e5"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_quarter">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/sv_fragment_data"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar"
+            android:layout_marginStart="@dimen/margin_half"
+            android:layout_marginTop="@dimen/margin_quarter"
+            android:layout_marginEnd="@dimen/margin_half"
+            android:background="@drawable/rounded_solid_button_white"
+            android:closeIcon="@drawable/ic_cancel_n"
+            android:contentDescription="@string/search_bar"
+            android:iconifiedByDefault="false"
+            android:importantForAccessibility="yes"
+            android:onClick="@{(v) -> onClick.onClick(v)}"
+            android:queryHint="@string/search_here"
+            android:searchHintIcon="@drawable/ic_search_n"
+            android:searchIcon="@drawable/ic_search_n"
+            android:textSize="@dimen/text_size_normal"
+            android:visibility="visible"
+            app:closeIcon="@drawable/ic_cancel_n"
+            app:defaultQueryHint="@string/search_here"
+            app:iconifiedByDefault="false"
+            app:queryHint="@string/search_here"
+            app:searchHintIcon="@drawable/ic_search_n"
+            app:searchIcon="@drawable/ic_search_n"
+            tools:targetApi="lollipop_mr1" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_fragment_data"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/action_bar_margin"
             android:clipToPadding="false"
-            android:paddingTop="@dimen/margin_quarter"
+            android:importantForAccessibility="no"
+            android:paddingTop="@dimen/margin_half"
             android:paddingBottom="@dimen/margin" />
 
         <TextView
             android:id="@+id/tv_fragment_data_error"
             style="@style/ErrorTextView"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="@dimen/profile_image_large"
             android:alpha="0.5"
             android:drawablePadding="@dimen/margin_half"
             android:gravity="center"
+            android:importantForAccessibility="yes"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginStart="@dimen/margin"
             android:visibility="gone"
             app:drawableTopCompat="@drawable/ic_global_error" />
 

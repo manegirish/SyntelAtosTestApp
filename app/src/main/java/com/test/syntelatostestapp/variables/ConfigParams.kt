@@ -11,4 +11,6 @@ internal object ConfigParams {
     const val SUCCESS_SNACK_DURATION:Int = 1000
     const val FAILURE_SNACK_DURATION:Int = 1200
 
+    const val SEARCH_DELAY:Long = 300
+
 }

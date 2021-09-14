@@ -35,4 +35,8 @@ ext {
     okhttp3 = '4.9.1'
 
     glide = '4.11.0'
+
+    coroutine = '1.5.2'
+
+    lifecycleVersion = '2.3.1'
 }
