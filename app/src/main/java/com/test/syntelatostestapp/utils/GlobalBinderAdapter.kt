@@ -18,6 +18,8 @@ import com.test.syntelatostestapp.R
  * @author Girish D. Mane girishmane8692@gmail.com
  * Created on 9/12/21
  * Last modified on 9/12/21
+ * View binding class used globally to the app
+ * commonly used to bind data directly to UI with some manipulations if needed
  */
 
 object GlobalBinderAdapter {
@@ -40,7 +42,7 @@ object GlobalBinderAdapter {
         GlideApp.with(imageView.context)
             .asBitmap()
             .load(imageUrl)
-            .override(imageView.resources.getDimensionPixelSize(R.dimen.profile_image)+100)
+            .override(imageView.resources.getDimensionPixelSize(R.dimen.profile_image) + 100)
             .sizeMultiplier(0.5f)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .error(ContextCompat.getDrawable(imageView.context, R.drawable.ic_avatar))

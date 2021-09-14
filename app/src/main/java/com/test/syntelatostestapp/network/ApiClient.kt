@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit
  * @author Girish D. Mane girishmane8692@gmail.com
  * Created on 9/12/21
  * Last modified on 9/12/21
+ *
+ * create and return API call Retrofit client
  */
 internal object ApiClient {
 
@@ -37,7 +39,10 @@ internal object ApiClient {
         return basicClient!!
     }
 
-
+    /**
+     * basic interceptor class to decode the API call made and the response to print in readable form
+     * if needed common header/params can be injected
+     * */
     private class BasicInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
             val request = chain.request()
